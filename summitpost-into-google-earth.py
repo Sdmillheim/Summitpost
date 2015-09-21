@@ -56,6 +56,10 @@ for URL in URLs[0:len(URLs)]:
         ### The coordinates == [] or pagehits == [] conditions are because of the same phantom errors as in the first loop. 
         if coordinates == [] or pagehits == []:
             successful = False
+            if x == 4:
+                lat.append('')
+                lon.append('')
+                hits.append('')
             x += 1
         else:
             successful = True
