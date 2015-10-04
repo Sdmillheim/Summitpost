@@ -18,7 +18,7 @@ URLs = []
 alt = []
 names = []
 for i in range(1,269):
-    ### The while clause repeats iterations in case of phantom errors in which an element is not added to one of the lists.
+    ### The while clause repeats iterations in case of occasional errors in which an element is not added to one of the lists.
     successful = False
     x = 0
     while not successful and x < 5:
@@ -33,7 +33,7 @@ for i in range(1,269):
             x += 1
         else:
             successful = True
-            print(i) # to count iterations
+            #print(i) # to count iterations
             URLs = URLs + URLupdate
             alt = alt + altupdate
             names = names + namesupdate
@@ -53,7 +53,7 @@ for URL in URLs[0:len(URLs)]:
             continue
         coordinates = str(bs(summitpage.text).findAll('a', {'style':'color: #249;'})).split(' ')[4:7]
         pagehits = [x for x in str(bs(summitpage.text).findAll('p')).split(' ') if '\xa0\n' in x]
-        ### The coordinates == [] or pagehits == [] conditions are because of the same phantom errors as in the first loop. 
+        ### The coordinates == [] or pagehits == [] conditions are because of the same occasional errors as in the first loop. 
         if coordinates == [] or pagehits == []:
             successful = False
             if x == 4:
